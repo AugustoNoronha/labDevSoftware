@@ -1,0 +1,38 @@
+@startuml
+
+"Usuario" as usuario
+"Secretaria" as secetaria
+"Aluno" as aluno
+"Professor" as professor
+
+usuario <|-- secetaria
+usuario <|-- aluno
+usuario <|-- professor
+
+usuario --> (Login)
+"Realizar login" as (Login)
+
+secetaria --> (Gerenciar curriculo)
+secetaria --> (Gerenciar informacoes)
+
+(Gerenciar informacoes) <|-- (Gerenciar informacoes da disciplina)
+(Gerenciar informacoes) <|-- (Gerenciar informacoes dos alunos)
+(Gerenciar informacoes) <|-- (Gerenciar informacoes dos professores)
+
+"Gerenciar curriculo de cada semestre" as (Gerenciar curriculo)
+"Gerenciar informacoes" as (Gerenciar informacoes)
+"Gerenciar informacoes da disciplina" as (Gerenciar informacoes da disciplina)
+"Gerenciar informacoes dos professores" as (Gerenciar informacoes dos professores)
+"Gerenciar informacoes dos alunos" as (Gerenciar informacoes dos alunos)
+
+aluno --> (Matricular)
+aluno --> (Cancelar matricula)
+(Matricular) .> (Notificar cobranca) : include
+"Matricular nas disciplinas" as (Matricular)
+"Cancelar matricula" as (Cancelar matricula)
+"Notificar sistema de cobranca" as (Notificar cobranca)
+
+professor --> (Visualizar alunos da disciplina)
+"Visualizar alunos da disciplina" as (Visualizar alunos da disciplina)
+
+@enduml

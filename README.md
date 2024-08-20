@@ -65,6 +65,8 @@
 **Para que** eu possa acessar o sistema de forma segura
 
 ---
+![Diagrama de caso de uso](/projeto/casoDeUso/casoDeUso.png "Diagrama de caso de uso")
+
 
 
 

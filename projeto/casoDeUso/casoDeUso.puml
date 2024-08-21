@@ -1,16 +1,7 @@
 @startuml
-
-"Usuario" as usuario
 "Secretaria" as secetaria
 "Aluno" as aluno
 "Professor" as professor
-
-usuario <|-- secetaria
-usuario <|-- aluno
-usuario <|-- professor
-
-usuario --> (Login)
-"Realizar login" as (Login)
 
 secetaria --> (Gerenciar curriculo)
 secetaria --> (Gerenciar informacoes)
@@ -28,6 +19,7 @@ secetaria --> (Gerenciar informacoes)
 aluno --> (Matricular)
 aluno --> (Cancelar matricula)
 (Matricular) .> (Notificar cobranca) : include
+(Cancelar matricula) .> (Notificar cobranca) : include
 "Matricular nas disciplinas" as (Matricular)
 "Cancelar matricula" as (Cancelar matricula)
 "Notificar sistema de cobranca" as (Notificar cobranca)

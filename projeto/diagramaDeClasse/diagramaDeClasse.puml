@@ -1,0 +1,67 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Pessoa {
+#String nome
+#boolean login()
+}
+
+Pessoa <|-- Secretaria
+Pessoa <|-- Aluno
+Pessoa <|-- Professor
+
+class Secretaria {
+-Curriculo gerarCurriculo()
+-Curso cadastrarCurso()
+}
+
+class Curso {
+-String nome
+-{static} int CREDITOS
+-{static} int CARGA_HORARIA
+-List<Disciplina> disciplinas
+}
+
+class Curriculo{
+-turmas: List<Turma>
+}
+
+class Turma{
+-professor: Professor
+-disciplina: Disciplina
+-alunos: List<Aluno>
+-status: Status
+}
+
+enum Status{
+ATIVA
+ABERTA_MATRICULA
+CANCELADA
+}
+
+class Disciplina {
+-nome: String
+-creditos: int
+}
+
+Curso o-- Disciplina
+Aluno -- Curso
+Curriculo -- Turma
+
+Turma *-- Disciplina
+Turma -- Professor
+Turma - Aluno
+Turma -- Status
+
+class Aluno  {
+-int creditos
+-curso: Curso
+-void matricular()
+-void cancelarMatricula()
+}
+
+class Professor  {
+-List<Aluno> visualizarAlunosMAtriculados()
+}
+
+@enduml

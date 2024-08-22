@@ -19,12 +19,20 @@ secetaria --> (Gerenciar informacoes)
 aluno --> (Matricular)
 aluno --> (Cancelar matricula)
 (Matricular) .> (Notificar cobranca) : include
+(Matricular) .> (Validar disciplinas da matricula) : include
 (Cancelar matricula) .> (Notificar cobranca) : include
 "Matricular nas disciplinas" as (Matricular)
 "Cancelar matricula" as (Cancelar matricula)
 "Notificar sistema de cobranca" as (Notificar cobranca)
+"Validar disciplinas da matricula" as (Validar disciplinas da matricula)
 
 professor --> (Visualizar alunos da disciplina)
 "Visualizar alunos da disciplina" as (Visualizar alunos da disciplina)
 
+
+rectangle "Sistema" {
+  "Validar quantidade de alunos no fim do semestre" as (Validar quantidade de alunos)
+  "Cancelar disciplina" as (Cancelar disciplina)
+   (Validar quantidade de alunos) <.. (Cancelar disciplina) : extends
+}
 @enduml

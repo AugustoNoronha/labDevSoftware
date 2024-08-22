@@ -1,3 +1,5 @@
+// colocar metodo associar/ remover à alguma turma  professor na classe secretaria ou na classe turma
+
 @startuml
 skinparam classAttributeIconSize 0
 

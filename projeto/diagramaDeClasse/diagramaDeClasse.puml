@@ -55,9 +55,9 @@ class Turma{
 -professor: Professor
 -disciplina: Disciplina
 -alunos: List<Aluno>
-+void adicionarAluno(aluno: Aluno)
-+void removerAluno(aluno: Aluno)
-+void selecionarProfessor(professor: Professor)
++List<Aluno> adicionarAluno(aluno: Aluno)
++List<Aluno> removerAluno(aluno: Aluno)
++Professor selecionarProfessor(professor: Professor)
 }
 
 enum Status{

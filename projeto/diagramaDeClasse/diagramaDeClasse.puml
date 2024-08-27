@@ -5,7 +5,7 @@ class Pessoa {
 #id: String
 #nome: String
 #senha: String
-#login(String senha, String id): boolean
++login(String senha, String id): boolean
 }
 
 Pessoa <|-- Secretaria
@@ -27,7 +27,7 @@ class Aluno  {
 }
 
 class Professor  {
--visualizarAlunosMatriculados(): List<Aluno>
++visualizarAlunosMatriculados(): List<Aluno>
 }
 
 class Curso {

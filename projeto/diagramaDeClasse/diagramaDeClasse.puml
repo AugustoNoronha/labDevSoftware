@@ -5,7 +5,7 @@ class Pessoa {
 #id: String
 #nome: String
 #senha: String
-#boolean login(String senha, String id)
+#login(String senha, String id): boolean
 }
 
 Pessoa <|-- Secretaria
@@ -13,21 +13,21 @@ Pessoa <|-- Aluno
 Pessoa <|-- Professor
 
 class Secretaria {
-+void gerarCurriculo()
-+Curso cadastrarCurso()
++gerarCurriculo(): void
++cadastrarCurso(): Curso
 }
 
 class Aluno  {
 -creditos: int
 -curso: Curso
 -turmas: List<Turma>
-+void matricularDisciplinaObrigatoria(idDisciplina: int)
-+void matricularDisciplinaOptativa(idDisciplina: int)
-+void cancelarMatricula(idDisciplina: int)
++matricularDisciplinaObrigatoria(idDisciplina: int): void
++matricularDisciplinaOptativa(idDisciplina: int): void
++cancelarMatricula(idDisciplina: int): void
 }
 
 class Professor  {
--List<Aluno> visualizarAlunosMatriculados()
+-visualizarAlunosMatriculados(): List<Aluno>
 }
 
 class Curso {
@@ -36,8 +36,8 @@ class Curso {
 -CREDITOS: int {static}
 -CARGA_HORARIA: int {static}
 -disciplinas: List<Disciplina>
-+ void adicionarDisciplina(disciplina: Disciplina)
-+ void removerDisciplina(idDisciplina: int)
++adicionarDisciplina(disciplina: Disciplina): void
++removerDisciplina(idDisciplina: int): void
 }
 
 class Disciplina {
@@ -47,17 +47,17 @@ class Disciplina {
 -CARGA_HORARIA: int {static}
 -NUMERO_MAXIMO_ALUNOS: int {static}
 -status: Status
--boolean validarNumeroMinimoDeAlunos()
--void cancelarDisciplina()
+-validarNumeroMinimoDeAlunos(): boolean
+-cancelarDisciplina(): boolean
 }
 
 class Turma{
 -professor: Professor
 -disciplina: Disciplina
 -alunos: List<Aluno>
-+List<Aluno> adicionarAluno(aluno: Aluno)
-+List<Aluno> removerAluno(aluno: Aluno)
-+Professor selecionarProfessor(professor: Professor)
++adicionarAluno(aluno: Aluno): List<Aluno>
++removerAluno(aluno: Aluno): List<Aluno>
++selecionarProfessor(professor: Professor): Professor
 }
 
 enum Status{

@@ -4,8 +4,10 @@
 skinparam classAttributeIconSize 0
 
 class Pessoa {
-#String nome
-#boolean login()
+#id: String
+#nome: String
+#senha: String
++login(String senha, String id): boolean
 }
 
 Pessoa <|-- Secretaria
@@ -13,26 +15,51 @@ Pessoa <|-- Aluno
 Pessoa <|-- Professor
 
 class Secretaria {
--Curriculo gerarCurriculo()
--Curso cadastrarCurso()
++gerarCurriculo(): void
++cadastrarCurso(): Curso
+}
+
+class Aluno  {
+-creditos: int
+-curso: Curso
+-turmas: List<Turma>
++matricularDisciplinaObrigatoria(idDisciplina: int): void
++matricularDisciplinaOptativa(idDisciplina: int): void
++cancelarMatricula(idDisciplina: int): void
+}
+
+class Professor  {
++visualizarAlunosMatriculados(): List<Aluno>
 }
 
 class Curso {
--String nome
--{static} int CREDITOS
--{static} int CARGA_HORARIA
--List<Disciplina> disciplinas
+-id: int
+-nome: String
+-CREDITOS: int {static}
+-CARGA_HORARIA: int {static}
+-disciplinas: List<Disciplina>
++adicionarDisciplina(disciplina: Disciplina): void
++removerDisciplina(idDisciplina: int): void
 }
 
-class Curriculo{
--turmas: List<Turma>
+class Disciplina {
+-id: int
+-nome: String
+-CREDITOS: int {static}
+-CARGA_HORARIA: int {static}
+-NUMERO_MAXIMO_ALUNOS: int {static}
+-status: Status
+-validarNumeroMinimoDeAlunos(): boolean
+-cancelarDisciplina(): boolean
 }
 
 class Turma{
 -professor: Professor
 -disciplina: Disciplina
 -alunos: List<Aluno>
--status: Status
++adicionarAluno(aluno: Aluno): List<Aluno>
++removerAluno(aluno: Aluno): List<Aluno>
++selecionarProfessor(professor: Professor): Professor
 }
 
 enum Status{
@@ -41,29 +68,14 @@ ABERTA_MATRICULA
 CANCELADA
 }
 
-class Disciplina {
--nome: String
--creditos: int
-}
-
 Curso o-- Disciplina
+
 Aluno -- Curso
-Curriculo -- Turma
 
-Turma *-- Disciplina
-Turma -- Professor
-Turma - Aluno
-Turma -- Status
+Turma -- Disciplina
+Turma --- Professor
+Turma ------ Aluno
 
-class Aluno  {
--int creditos
--curso: Curso
--void matricular()
--void cancelarMatricula()
-}
-
-class Professor  {
--List<Aluno> visualizarAlunosMAtriculados()
-}
+Disciplina -- Status
 
 @enduml

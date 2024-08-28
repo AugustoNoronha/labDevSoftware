@@ -47,6 +47,7 @@ class Disciplina {
 -nome: String
 -CREDITOS: int {static}
 -CARGA_HORARIA: int {static}
+-NUMERO_MINIMO_ALUNOS: int {static}
 -NUMERO_MAXIMO_ALUNOS: int {static}
 -status: Status
 -validarNumeroMinimoDeAlunos(): boolean
@@ -56,6 +57,8 @@ class Disciplina {
 class Turma{
 -professor: Professor
 -disciplina: Disciplina
+-semestre: String
+-ano: String
 -alunos: List<Aluno>
 +adicionarAluno(aluno: Aluno): List<Aluno>
 +removerAluno(aluno: Aluno): List<Aluno>

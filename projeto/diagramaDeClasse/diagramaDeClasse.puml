@@ -22,7 +22,6 @@ class Secretaria {
 class Aluno  {
 -creditos: int
 -curso: Curso
--turmas: List<Turma>
 +matricularDisciplinaObrigatoria(idDisciplina: int): void
 +matricularDisciplinaOptativa(idDisciplina: int): void
 +cancelarMatricula(idDisciplina: int): void
@@ -36,8 +35,6 @@ class Curso {
 -id: int
 -nome: String
 -CREDITOS: int {static}
--CARGA_HORARIA: int {static}
--disciplinas: List<Disciplina>
 +adicionarDisciplina(disciplina: Disciplina): void
 +removerDisciplina(idDisciplina: int): void
 }
@@ -45,11 +42,11 @@ class Curso {
 class Disciplina {
 -id: int
 -nome: String
+-curso: Curso
+-status: Status
 -CREDITOS: int {static}
--CARGA_HORARIA: int {static}
 -NUMERO_MINIMO_ALUNOS: int {static}
 -NUMERO_MAXIMO_ALUNOS: int {static}
--status: Status
 -validarNumeroMinimoDeAlunos(): boolean
 -cancelarDisciplina(): boolean
 }
@@ -71,13 +68,13 @@ ABERTA_MATRICULA
 CANCELADA
 }
 
-Curso o-- Disciplina
+Curso - Disciplina
 
 Aluno -- Curso
 
 Turma -- Disciplina
 Turma --- Professor
-Turma ------ Aluno
+Turma --- Aluno
 
 Disciplina -- Status
 

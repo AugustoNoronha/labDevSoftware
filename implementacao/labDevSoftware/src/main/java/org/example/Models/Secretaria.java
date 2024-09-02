@@ -8,7 +8,7 @@ public class Secretaria extends Pessoa{
         super(id, nome, senha);
     }
 
-    public void gerarCurriculo(){
+    public void gerarCurriculo(String Ano, String semestre, Disciplina disciplina, Professor professor, List<Aluno> alunos){
 
     }
 

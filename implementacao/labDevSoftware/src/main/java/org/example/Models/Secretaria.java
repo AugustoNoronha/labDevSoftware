@@ -1,5 +1,7 @@
 package org.example.Models;
 
+import org.example.Utils.Arquivos;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,7 @@ public class Secretaria extends Pessoa{
     }
 
     public void gerarCurriculo(String Ano, String semestre, Disciplina disciplina, Professor professor, List<Aluno> alunos){
-
+        Arquivos.armazenarValores();
     }
 
     public Curso cadastrarCurso(){

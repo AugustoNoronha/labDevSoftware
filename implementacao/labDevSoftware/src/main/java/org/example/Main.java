@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.Models.Pessoa;
 import org.example.Models.Secretaria;
+import org.example.Utils.Arquivos;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         /*Pessoa pessoa = new Pessoa(1,"augusto","pppppp");
-        armazenarValores(pessoa, "C:\\_dev\\labDevSoftware\\implementacao\\labDevSoftware\\src\\main\\java\\org\\example\\Armazenamento\\teste.txt");*/
+        Arquivos.armazenarValores(pessoa, "file-path-direto-da-maquina");*/
         Scanner sc = new Scanner(System.in);
         String entrada = "";
             entrada = gerarMenuUsuarios(sc);
@@ -57,7 +58,7 @@ public class Main {
         switch (opcao){
             case "1":
                 System.out.println("Deve gerar Curriculo ");
-                secretaria.gerarCurriculo();
+              /*  secretaria.gerarCurriculo();*/
                 break;
             case "2":
                 System.out.println("Deve Cadastrar Curso ");

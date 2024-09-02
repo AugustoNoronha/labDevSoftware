@@ -1,3 +1,5 @@
+// colocar metodo associar/ remover à alguma turma  professor na classe secretaria ou na classe turma
+
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -5,7 +7,7 @@ class Pessoa {
 #id: String
 #nome: String
 #senha: String
-#boolean login(String senha, String id)
++login(String senha, String id): boolean
 }
 
 Pessoa <|-- Secretaria
@@ -13,51 +15,51 @@ Pessoa <|-- Aluno
 Pessoa <|-- Professor
 
 class Secretaria {
-+void gerarCurriculo()
-+Curso cadastrarCurso()
++gerarCurriculo(): void
++cadastrarCurso(): Curso
 }
 
 class Aluno  {
 -creditos: int
 -curso: Curso
--turmas: List<Turma>
-+void matricularDisciplinaObrigatoria(idDisciplina: int)
-+void matricularDisciplinaOptativa(idDisciplina: int)
-+void cancelarMatricula(idDisciplina: int)
++matricularDisciplinaObrigatoria(idDisciplina: int): void
++matricularDisciplinaOptativa(idDisciplina: int): void
++cancelarMatricula(idDisciplina: int): void
 }
 
 class Professor  {
--List<Aluno> visualizarAlunosMatriculados()
++visualizarAlunosMatriculados(): List<Aluno>
 }
 
 class Curso {
 -id: int
 -nome: String
 -CREDITOS: int {static}
--CARGA_HORARIA: int {static}
--disciplinas: List<Disciplina>
-+ void adicionarDisciplina(disciplina: Disciplina)
-+ void removerDisciplina(idDisciplina: int)
++adicionarDisciplina(disciplina: Disciplina): void
++removerDisciplina(idDisciplina: int): void
 }
 
 class Disciplina {
 -id: int
 -nome: String
--CREDITOS: int {static}
--CARGA_HORARIA: int {static}
--NUMERO_MAXIMO_ALUNOS: int {static}
+-curso: Curso
 -status: Status
--boolean validarNumeroMinimoDeAlunos()
--void cancelarDisciplina()
+-CREDITOS: int {static}
+-NUMERO_MINIMO_ALUNOS: int {static}
+-NUMERO_MAXIMO_ALUNOS: int {static}
+-validarNumeroMinimoDeAlunos(): boolean
+-cancelarDisciplina(): boolean
 }
 
 class Turma{
 -professor: Professor
 -disciplina: Disciplina
+-semestre: String
+-ano: String
 -alunos: List<Aluno>
-+List<Aluno> adicionarAluno(aluno: Aluno)
-+List<Aluno> removerAluno(aluno: Aluno)
-+Professor selecionarProfessor(professor: Professor)
++adicionarAluno(aluno: Aluno): List<Aluno>
++removerAluno(aluno: Aluno): List<Aluno>
++selecionarProfessor(professor: Professor): Professor
 }
 
 enum Status{
@@ -66,13 +68,13 @@ ABERTA_MATRICULA
 CANCELADA
 }
 
-Curso o-- Disciplina
+Curso - Disciplina
 
 Aluno -- Curso
 
 Turma -- Disciplina
 Turma --- Professor
-Turma ------ Aluno
+Turma --- Aluno
 
 Disciplina -- Status
 

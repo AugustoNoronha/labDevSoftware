@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Turmas {
-    public Professor Professor;
-    public Disciplina Diciplina;
-    public List<Aluno> Alunos;
+    public Professor professor;
+    public Disciplina disciplina;
+    public List<Aluno> alunos;
 
-    public Turmas(org.example.Models.Professor professor, Disciplina diciplina, List<Aluno> alunos) {
-        Professor = professor;
-        Diciplina = diciplina;
-        Alunos = alunos;
+    public Turmas(Professor professor, Disciplina disciplina, List<Aluno> alunos) {
+        this.professor = professor;
+        this.disciplina = disciplina;
+        this.alunos = alunos;
     }
 
     public List<Aluno> adicionarAluno(Aluno aluno){
@@ -25,30 +25,23 @@ public class Turmas {
     }
 
     public Professor selecionarProfessor(Professor professor){
-        return  professor;
+        return  this.professor;
     }
 
-    public org.example.Models.Professor getProfessor() {
-        return Professor;
+    public Professor getProfessor() {
+        return this.professor;
     }
 
-    public void setProfessor(org.example.Models.Professor professor) {
-        Professor = professor;
+    public Disciplina getDisciplina() {
+        return this.disciplina;
     }
 
-    public Disciplina getDiciplina() {
-        return Diciplina;
-    }
-
-    public void setDiciplina(Disciplina diciplina) {
-        Diciplina = diciplina;
-    }
 
     public List<Aluno> getAlunos() {
-        return Alunos;
+        return this.alunos;
     }
 
     public void setAlunos(List<Aluno> alunos) {
-        Alunos = alunos;
+        this.alunos = alunos;
     }
 }

@@ -4,14 +4,14 @@ import java.util.List;
 
 public class Aluno extends Pessoa{
     private int creditos;
-    private Curso Curso;
-    private List<Turmas> Turmas;
+    private Curso curso;
+    private List<Turmas> turmas;
 
-    public Aluno(int id, String nome, String senha, int creditos, org.example.Models.Curso curso, List<org.example.Models.Turmas> turmas) {
+    public Aluno(int id, String nome, String senha, int creditos, Curso curso, List<Turmas> turmas) {
         super(id, nome, senha);
         this.creditos = creditos;
-        Curso = curso;
-        Turmas = turmas;
+        this.curso = curso;
+        this.turmas = turmas;
     }
 
     public void matricularDisciplinaObrigatoria(int idDiscilpina){
@@ -27,26 +27,15 @@ public class Aluno extends Pessoa{
     }
 
     public int getCreditos() {
-        return creditos;
+        return this.creditos;
     }
 
-    public void setCreditos(int creditos) {
-        this.creditos = creditos;
+    public Curso getCurso() {
+        return this.curso;
     }
 
-    public org.example.Models.Curso getCurso() {
-        return Curso;
+    public List<Turmas> getTurmas() {
+        return this.turmas;
     }
 
-    public void setCurso(org.example.Models.Curso curso) {
-        Curso = curso;
-    }
-
-    public List<org.example.Models.Turmas> getTurmas() {
-        return Turmas;
-    }
-
-    public void setTurmas(List<org.example.Models.Turmas> turmas) {
-        Turmas = turmas;
-    }
 }

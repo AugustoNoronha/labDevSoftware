@@ -31,10 +31,6 @@ public class Curso {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -47,23 +43,12 @@ public class Curso {
         return CREDITOS;
     }
 
-    public void setCREDITOS(int CREDITOS) {
-        this.CREDITOS = CREDITOS;
-    }
-
     public int getCARGA_HORARIA() {
         return CARGA_HORARIA;
-    }
-
-    public void setCARGA_HORARIA(int CARGA_HORARIA) {
-        this.CARGA_HORARIA = CARGA_HORARIA;
     }
 
     public List<Disciplina> getDisciplina() {
         return disciplina;
     }
 
-    public void setDisciplina(List<Disciplina> disciplina) {
-        this.disciplina = disciplina;
-    }
 }

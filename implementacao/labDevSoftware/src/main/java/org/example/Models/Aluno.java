@@ -35,8 +35,25 @@ public class Aluno extends Pessoa{
         System.out.println("Matrícula realizada com sucesso.");
     }
 
-    public void matricularDisciplinaOptativa(int idDiscilpina){
+    public void matricularDisciplinaOptativa(Turma turma) {
+        if (!turma.getDisciplina().isOptativa()) {
+            System.out.println("Esta disciplina não é optativa.");
+            return;
+        }
 
+        if (optativasMaximasAtingida()) {
+            System.out.println("Você já atingiu o limite de disciplinas optativas.");
+            return;
+        }
+
+        if (turma.getAlunosMatriculados().size() >= turma.getDisciplina().getNUMERO_MAXIMO_ALUNOS()) {
+            System.out.println("A turma já atingiu o limite máximo de alunos.");
+            return;
+        }
+
+        this.turmas.add(turma);
+        turma.addAluno(this);
+        System.out.println("Matrícula realizada com sucesso.");
     }
 
     public void cancelarMtricula(int idDiscilpina){

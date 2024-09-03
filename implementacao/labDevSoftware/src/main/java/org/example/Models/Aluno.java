@@ -1,5 +1,7 @@
 package org.example.Models;
 
+import org.example.Models.Enums.Status;
+
 import java.util.List;
 
 public class Aluno extends Pessoa{
@@ -14,7 +16,7 @@ public class Aluno extends Pessoa{
         this.turmas = turmas;
     }
 
-    public void matricularDisciplinaObrigatoria(Turma turma) {
+    public void matricularDisciplinaObrigatoria(Turmas turma) {
         if (this.curso.getDisciplinaById(turma.getDisciplina().getId()) == null) {
             System.out.println("Disciplina não encontrada no curso.");
             return;
@@ -25,7 +27,7 @@ public class Aluno extends Pessoa{
             return;
         }
 
-        if (turma.getAlunosMatriculados().size() >= turma.getDisciplina().getNUMERO_MAXIMO_ALUNOS()) {
+        if (turma.getAlunos().size() >= turma.getDisciplina().getNUMERO_MAXIMO_ALUNOS()) {
             System.out.println("A turma já atingiu o limite máximo de alunos.");
             return;
         }
@@ -36,11 +38,11 @@ public class Aluno extends Pessoa{
         }
 
         this.turmas.add(turma);
-        turma.addAluno(this);
+        turma.adicionarAluno(this);
         System.out.println("Matrícula realizada com sucesso.");
     }
 
-    public void matricularDisciplinaOptativa(Turma turma) {
+    public void matricularDisciplinaOptativa(Turmas turma) {
         if (!turma.getDisciplina().isOptativa()) {
             System.out.println("Esta disciplina não é optativa.");
             return;
@@ -51,7 +53,7 @@ public class Aluno extends Pessoa{
             return;
         }
 
-        if (turma.getAlunosMatriculados().size() >= turma.getDisciplina().getNUMERO_MAXIMO_ALUNOS()) {
+        if (turma.getAlunos().size() >= turma.getDisciplina().getNUMERO_MAXIMO_ALUNOS()) {
             System.out.println("A turma já atingiu o limite máximo de alunos.");
             return;
         }
@@ -62,18 +64,18 @@ public class Aluno extends Pessoa{
         }
 
         this.turmas.add(turma);
-        turma.addAluno(this);
+        turma.adicionarAluno(this);
         System.out.println("Matrícula realizada com sucesso.");
     }
 
-    public void cancelarMatricula(Turma turma) {
+    public void cancelarMatricula(Turmas turma) {
         if (!this.turmas.contains(turma)) {
             System.out.println("Você não está matriculado nesta disciplina.");
             return;
         }
 
         this.turmas.remove(turma);
-        turma.removeAluno(this);
+        turma.removerAluno(this);
         System.out.println("Matrícula cancelada com sucesso.");
     }
 
@@ -90,10 +92,10 @@ public class Aluno extends Pessoa{
     }
 
     private boolean optativasMaximasAtingida() {
-    int numeroOptativas = 0;
-    for(Turmas turma:turmas) {
-        if(turma.isOptativa()) {
-            numeroOptativas++;
+        int numeroOptativas = 0;
+        for(Turmas turma:turmas) {
+            if(turma.isOptativa()) {
+                numeroOptativas++;
             }
         }
         return numeroOptativas < 2? false:true;
@@ -103,7 +105,7 @@ public class Aluno extends Pessoa{
         int numeroObrigatorias = 0;
         for(Turmas turma:turmas) {
             if(!turma.isOptativa()) {
-                numeroOptativas++;
+                numeroObrigatorias++;
             }
         }
         return numeroObrigatorias < 4? false:true;

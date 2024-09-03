@@ -7,11 +7,21 @@ public class Turmas {
     public Professor professor;
     public Disciplina disciplina;
     public List<Aluno> alunos;
+    public String semestre;
+    public String ano;
 
     public Turmas(Professor professor, Disciplina disciplina) {
         this.professor = professor;
         this.disciplina = disciplina;
         this.alunos = new ArrayList<>();
+    }
+
+    public Turmas(Professor professor, Disciplina disciplina, List<Aluno> alunos, String semestre, String ano) {
+        this.professor = professor;
+        this.disciplina = disciplina;
+        this.alunos = alunos;
+        this.semestre = semestre;
+        this.ano = ano;
     }
 
     public List<Aluno> adicionarAluno(Aluno aluno) {
@@ -30,6 +40,10 @@ public class Turmas {
             System.out.println("Aluno não encontrado na turma.");
         }
         return this.alunos;
+    }
+
+    public boolean isOptativa(){
+        return this.disciplina.isOptativa();
     }
 
     public Professor selecionarProfessor(Professor professor){
@@ -51,5 +65,13 @@ public class Turmas {
 
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
+    }
+
+    public String getSemestre() {
+        return semestre;
+    }
+
+    public String getAno() {
+        return ano;
     }
 }

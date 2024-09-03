@@ -47,8 +47,8 @@ public class Curso {
         return CARGA_HORARIA;
     }
 
-    public List<Disciplina> getDisciplina() {
-        return disciplina;
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 
     public Disciplina getDisciplinaById(int id) {

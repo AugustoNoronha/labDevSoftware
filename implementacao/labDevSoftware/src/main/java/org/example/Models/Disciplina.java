@@ -10,6 +10,7 @@ public class Disciplina {
     private int CREDITOS;
     private boolean optativa;
     private int CARGA_HORARIA;
+    private List<Disciplina> disciplina;
     private int NUMERO_MAXIMO_ALUNOS;
     private Status Status;
 

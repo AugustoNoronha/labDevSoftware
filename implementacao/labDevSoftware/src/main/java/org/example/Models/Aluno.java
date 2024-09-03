@@ -38,4 +38,25 @@ public class Aluno extends Pessoa{
         return this.turmas;
     }
 
+    private boolean optativasMaximasAtingida() {
+    int numeroOptativas = 0;
+    for(Turmas turma:turmas) {
+        if(turma.isOptativa()) {
+            numeroOptativas++;
+            }
+        }
+        return numeroOptativas < 2? false:true;
+    }
+
+    private boolean obrigatoriasMaximasAtingidas() {
+        int numeroObrigatorias = 0;
+        for(Turmas turma:turmas) {
+            if(!turma.isOptativa()) {
+                numeroOptativas++;
+            }
+        }
+        return numeroObrigatorias < 4? false:true;
+
+    }
+
 }

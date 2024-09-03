@@ -56,8 +56,15 @@ public class Aluno extends Pessoa{
         System.out.println("Matrícula realizada com sucesso.");
     }
 
-    public void cancelarMtricula(int idDiscilpina){
+    public void cancelarMatricula(Turma turma) {
+        if (!this.turmas.contains(turma)) {
+            System.out.println("Você não está matriculado nesta disciplina.");
+            return;
+        }
 
+        this.turmas.remove(turma);
+        turma.removeAluno(this);
+        System.out.println("Matrícula cancelada com sucesso.");
     }
 
     public int getCreditos() {

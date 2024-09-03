@@ -9,14 +9,14 @@ public class Curso {
     private String nome;
     private int CREDITOS;
     private int CARGA_HORARIA;
-    private List<Disciplina> disciplina;
+    private List<Disciplina> disciplinas;
 
     public Curso(int id, String nome, int CREDITOS, int CARGA_HORARIA, List<Disciplina> disciplina) {
         this.id = id;
         this.nome = nome;
         this.CREDITOS = CREDITOS;
         this.CARGA_HORARIA = CARGA_HORARIA;
-        this.disciplina = disciplina;
+        this.disciplinas = disciplina;
     }
 
     public void adicionarDisciplina(Disciplina disciplina){
@@ -50,5 +50,18 @@ public class Curso {
     public List<Disciplina> getDisciplina() {
         return disciplina;
     }
+
+    public Disciplina getDisciplinaById(int id) {
+        if (this.disciplinas == null || this.disciplinas.isEmpty()) {
+            return null;
+        }
+        for (Disciplina disciplina : this.disciplinas) {
+            if (disciplina.getId() == id) {
+                return disciplina;
+            }
+        }
+        return null;
+    }
+
 
 }

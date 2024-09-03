@@ -3,6 +3,9 @@ package org.example;
 import org.example.Models.*;
 import org.example.Models.Enums.Status;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,6 +23,8 @@ public class Main {
     static Professor professor = new Professor(1, "prefessor", "123");
 
     public static void main(String[] args) throws IOException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
+        EntityManager em = emf.createEntityManager();
         Scanner sc = new Scanner(System.in);
         String entrada = "";
         entrada = gerarMenuUsuarios(sc);

@@ -23,7 +23,7 @@ public class Pessoa {
         return senha;
     }
 
-    public boolean login(String senha, String id){
-        return true;
+    public boolean login(String senha, int id) {
+        return this.id == id && this.senha.equals(senha);
     }
 }

@@ -30,6 +30,11 @@ public class Aluno extends Pessoa{
             return;
         }
 
+        if(turma.getDisciplina().getStatus() != Status.ABERTA_MATRICULA){
+            System.out.println("A turma não está mais disponivel para matrícula");
+            return;
+        }
+
         this.turmas.add(turma);
         turma.addAluno(this);
         System.out.println("Matrícula realizada com sucesso.");
@@ -48,6 +53,11 @@ public class Aluno extends Pessoa{
 
         if (turma.getAlunosMatriculados().size() >= turma.getDisciplina().getNUMERO_MAXIMO_ALUNOS()) {
             System.out.println("A turma já atingiu o limite máximo de alunos.");
+            return;
+        }
+
+        if(turma.getDisciplina().getStatus() != Status.ABERTA_MATRICULA){
+            System.out.println("A turma não está mais disponivel para matrícula");
             return;
         }
 

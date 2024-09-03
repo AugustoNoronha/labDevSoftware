@@ -10,17 +10,15 @@ public class Disciplina {
     private int CREDITOS;
     private boolean optativa;
     private int CARGA_HORARIA;
-    private List<Disciplina> disciplina;
     private int NUMERO_MAXIMO_ALUNOS;
     private Status Status;
 
-    public Disciplina(int id, String nome, int CREDITOS, boolean optativa, int CARGA_HORARIA, List<Disciplina> disciplina, int NUMERO_MAXIMO_ALUNOS, org.example.Models.Enums.Status status) {
+    public Disciplina(int id, String nome, int CREDITOS, boolean optativa, int CARGA_HORARIA, int NUMERO_MAXIMO_ALUNOS, org.example.Models.Enums.Status status) {
         this.id = id;
         this.nome = nome;
         this.CREDITOS = CREDITOS;
         this.optativa = optativa;
         this.CARGA_HORARIA = CARGA_HORARIA;
-        this.disciplina = disciplina;
         this.NUMERO_MAXIMO_ALUNOS = NUMERO_MAXIMO_ALUNOS;
         Status = status;
     }
@@ -61,6 +59,8 @@ public class Disciplina {
         return Status;
     }
 
-
-
+    @Override
+    public String toString() {
+        return id  + ";" +  nome + ";" + optativa;
+    }
 }

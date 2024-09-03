@@ -1,7 +1,5 @@
 package org.example.Models;
 
-import org.example.Models.Enums.Status;
-
 import java.util.List;
 
 public class Curso {
@@ -19,12 +17,33 @@ public class Curso {
         this.disciplinas = disciplina;
     }
 
-    public void adicionarDisciplina(Disciplina disciplina){
+    public Curso(String[] dadosCurso) {
+        this.id = Integer.parseInt(dadosCurso[0]);
+        this.nome = dadosCurso[1];
+        this.CREDITOS = Integer.parseInt(dadosCurso[2]);
+    }
+
+    public void adicionarDisciplina(Disciplina disciplina) {
 
     }
 
-    public void removerDisciplina(int idDisciplina){
+    public void removerDisciplina(int idDisciplina) {
 
+    }
+
+    public List<Disciplina> getDisciplinasObrigatorias() {
+        return this.getDisciplinas()
+                .stream()
+                .filter(disciplina -> !disciplina.isOptativa())
+                .toList();
+    }
+
+
+    public List<Disciplina> getDisciplinasOptativas() {
+        return this.getDisciplinas()
+                .stream()
+                .filter(Disciplina::isOptativa)
+                .toList();
     }
 
     public int getId() {
@@ -63,5 +82,8 @@ public class Curso {
         return null;
     }
 
-
+    @Override
+    public String toString() {
+        return id + ";" + nome + ";" + disciplinas;
+    }
 }

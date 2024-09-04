@@ -1,5 +1,7 @@
 package org.example.Models;
 
+import org.example.Utils.Arquivos;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class Turmas {
         } else {
             System.out.println("Não é possível adicionar aluno. Limite máximo de alunos atingido.");
         }
+        Arquivos.armazenarValores(aluno,"C:\\temp\\alunos.in");
         return this.alunos;
     }
 

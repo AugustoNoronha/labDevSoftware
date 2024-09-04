@@ -1,12 +1,23 @@
 package org.example.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
+@Entity
 public class Curso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private int CREDITOS;
     private int CARGA_HORARIA;
+
+    @OneToMany
     private List<Disciplina> disciplinas;
 
     public Curso(int id, String nome, int CREDITOS, int CARGA_HORARIA, List<Disciplina> disciplina) {
@@ -21,6 +32,10 @@ public class Curso {
         this.id = Integer.parseInt(dadosCurso[0]);
         this.nome = dadosCurso[1];
         this.CREDITOS = Integer.parseInt(dadosCurso[2]);
+    }
+
+    public Curso() {
+
     }
 
     public void adicionarDisciplina(Disciplina disciplina) {

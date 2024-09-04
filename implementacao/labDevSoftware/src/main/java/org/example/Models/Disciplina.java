@@ -2,15 +2,26 @@ package org.example.Models;
 
 import org.example.Models.Enums.Status;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Disciplina {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private int CREDITOS;
     private boolean optativa;
     private int CARGA_HORARIA;
     private int NUMERO_MAXIMO_ALUNOS;
+
+    @Enumerated(EnumType.STRING)
     private Status Status;
 
     public Disciplina(int id, String nome, int CREDITOS, boolean optativa, int CARGA_HORARIA, int NUMERO_MAXIMO_ALUNOS, org.example.Models.Enums.Status status) {
@@ -23,11 +34,15 @@ public class Disciplina {
         Status = status;
     }
 
-    public Boolean validarNumeroMinimoDeAlunos(){
+    public Disciplina() {
+
+    }
+
+    public Boolean validarNumeroMinimoDeAlunos() {
         return true;
     }
 
-    public void cancelarDisciplina(){
+    public void cancelarDisciplina() {
 
     }
 
@@ -61,6 +76,6 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return id  + ";" +  nome + ";" + optativa;
+        return id + ";" + nome + ";" + optativa;
     }
 }

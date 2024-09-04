@@ -1,14 +1,34 @@
 package org.example.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
+@Entity
 public class Turmas {
-    public Professor professor;
-    public Disciplina disciplina;
-    public List<Aluno> alunos;
-    public String semestre;
-    public String ano;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @ManyToOne
+    private Professor professor;
+
+    @OneToOne
+    private Disciplina disciplina;
+
+    @OneToMany
+    private List<Aluno> alunos;
+
+    private String semestre;
+
+    private String ano;
 
     public Turmas(Professor professor, Disciplina disciplina) {
         this.professor = professor;
@@ -22,6 +42,10 @@ public class Turmas {
         this.alunos = alunos;
         this.semestre = semestre;
         this.ano = ano;
+    }
+
+    public Turmas() {
+
     }
 
     public List<Aluno> adicionarAluno(Aluno aluno) {

@@ -1,18 +1,16 @@
 package org.example.Models;
 
 public class Pessoa {
-    private int id;
+
     private String nome;
     private String senha;
 
-    public Pessoa(int id, String nome, String senha) {
-        this.id = id;
+    public Pessoa(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
     }
 
-    public int getId() {
-        return id;
+    public Pessoa() {
     }
 
     public String getNome() {
@@ -23,7 +21,7 @@ public class Pessoa {
         return senha;
     }
 
-    public boolean login(String senha, int id) {
-        return this.id == id && this.senha.equals(senha);
+    public boolean login(String senha, String nome) {
+        return this.nome.equals(nome) && this.senha.equals(senha);
     }
 }

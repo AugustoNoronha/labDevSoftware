@@ -2,18 +2,38 @@ package org.example.Models;
 
 import org.example.Models.Enums.Status;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
+@Entity
 public class Aluno extends Pessoa{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private int creditos;
+
+    @OneToOne
     private Curso curso;
+
+    @OneToMany
     private List<Turmas> turmas;
 
     public Aluno(int id, String nome, String senha, int creditos, Curso curso, List<Turmas> turmas) {
-        super(id, nome, senha);
+        super(nome, senha);
+        this.id = id;
         this.creditos = creditos;
         this.curso = curso;
         this.turmas = turmas;
+    }
+
+    public Aluno() {
     }
 
     public void matricularDisciplinaObrigatoria(Turmas turma) {

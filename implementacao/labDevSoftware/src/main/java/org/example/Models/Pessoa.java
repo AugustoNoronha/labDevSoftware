@@ -1,5 +1,8 @@
 package org.example.Models;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Pessoa {
 
     private String nome;

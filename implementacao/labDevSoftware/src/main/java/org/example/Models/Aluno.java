@@ -25,9 +25,8 @@ public class Aluno extends Pessoa{
     @OneToMany
     private List<Turmas> turmas;
 
-    public Aluno(int id, String nome, String senha, int creditos, Curso curso, List<Turmas> turmas) {
+    public Aluno(String nome, String senha, int creditos, Curso curso, List<Turmas> turmas) {
         super(nome, senha);
-        this.id = id;
         this.creditos = creditos;
         this.curso = curso;
         this.turmas = turmas;

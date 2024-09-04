@@ -15,9 +15,8 @@ public class Secretaria extends Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    public Secretaria(String nome, String senha, int id) {
+    public Secretaria(String nome, String senha) {
         super(nome, senha);
-        this.id = id;
     }
 
     public Secretaria() {

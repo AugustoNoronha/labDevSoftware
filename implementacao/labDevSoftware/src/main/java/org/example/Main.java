@@ -1,7 +1,13 @@
 package org.example;
 
-import org.example.Models.*;
+import org.example.Models.Aluno;
+import org.example.Models.Curso;
+import org.example.Models.Disciplina;
 import org.example.Models.Enums.Status;
+import org.example.Models.Pessoa;
+import org.example.Models.Professor;
+import org.example.Models.Secretaria;
+import org.example.Models.Turmas;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,7 +26,7 @@ public class Main {
     static Disciplina disciplina2 = new Disciplina(2, "B", 25, false, 50, 60, Status.ABERTA_MATRICULA);
     static Disciplina disciplina3 = new Disciplina(3, "C", 25, true, 50, 60, Status.ABERTA_MATRICULA);
     static Curso curso = new Curso(1, null, 10, 10, List.of(disciplina1, disciplina2, disciplina3));
-    static Professor professor = new Professor(1, "prefessor", "123");
+    static Professor professor = new Professor("prefessor", "123");
 
     public static void main(String[] args) throws IOException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
@@ -39,7 +45,7 @@ public class Main {
         opcao = scanner.next();
         switch (opcao) {
             case "1":
-                Secretaria secretaria = new Secretaria(1, "secretaria", "123456");
+                Secretaria secretaria = new Secretaria("secretaria", "123456");
                 System.out.println("Secretaria selecionada ");
 
                 if (gerarMenuLogin(scanner, secretaria)) {
@@ -48,7 +54,7 @@ public class Main {
                 break;
             case "2":
                 System.out.println("Aluno selecionado");
-                Aluno aluno = new Aluno(1, "aluno", "123456", 0, curso, new ArrayList<>());
+                Aluno aluno = new Aluno("aluno", "123456", 0, curso, new ArrayList<>());
                 if (gerarMenuLogin(scanner, aluno)) {
                     gerarMenuAluno(scanner, aluno);
                 }
@@ -63,12 +69,12 @@ public class Main {
     }
 
     private static boolean gerarMenuLogin(Scanner scanner, Pessoa secretaria) {
-        System.out.print("Digite seu id de login: ");
-        int id = scanner.nextInt();
+        System.out.print("Digite seu nome de login: ");
+        String nome = scanner.nextLine();
         scanner.nextLine();
         System.out.print("Digite sua senha de login: ");
         String senha = scanner.nextLine();
-        if (!secretaria.login(senha, id)) {
+        if (!secretaria.login(nome, senha)) {
             System.out.println("Credenciais de login invalidas");
             return false;
         }
@@ -140,17 +146,17 @@ public class Main {
         listDisciplina.add(disciplina3);
 
         List<Professor> listProfessores = new ArrayList<>();
-        Professor professor1 = new Professor(1, "Cleia", "123");
-        Professor professor2 = new Professor(1, "Arthur", "123");
-        Professor professor3 = new Professor(1, "Joao", "123");
+        Professor professor1 = new Professor("Cleia", "123");
+        Professor professor2 = new Professor("Arthur", "123");
+        Professor professor3 = new Professor("Joao", "123");
         listProfessores.add(professor1);
         listProfessores.add(professor2);
         listProfessores.add(professor3);
 
         List<Aluno> listAlunos = new ArrayList<>();
-        Aluno aluno1 = new Aluno(1, "Romulo", "123", 20, null, null);
-        Aluno aluno2 = new Aluno(1, "Pedro", "123", 20, null, null);
-        Aluno aluno3 = new Aluno(1, "Lucas", "123", 20, null, null);
+        Aluno aluno1 = new Aluno("Romulo", "123", 20, null, null);
+        Aluno aluno2 = new Aluno("Pedro", "123", 20, null, null);
+        Aluno aluno3 = new Aluno("Lucas", "123", 20, null, null);
         listAlunos.add(aluno1);
         listAlunos.add(aluno2);
         listAlunos.add(aluno3);

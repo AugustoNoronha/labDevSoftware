@@ -17,9 +17,8 @@ public class Professor extends Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    public Professor(int id, String nome, String senha) {
+    public Professor(String nome, String senha) {
         super(nome, senha);
-        this.id = id;
     }
 
     public Professor() {

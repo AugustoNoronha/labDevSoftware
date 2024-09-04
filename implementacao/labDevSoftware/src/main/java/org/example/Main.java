@@ -87,6 +87,7 @@ public class Main {
             case "1" -> gerarMenuDisciplinasObrigatorias(scanner, curso, aluno);
             case "2" -> gerarMenuDisciplinasOptativas(scanner, curso, aluno);
             case "3" -> gerarMenuUsuarios(scanner);
+            default -> gerarMenuAluno(scanner, aluno);
         }
     }
 

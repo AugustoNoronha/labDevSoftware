@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Turmas {
-    public Professor professor;
-    public Disciplina disciplina;
-    public List<Aluno> alunos;
-    public String semestre;
-    public String ano;
+    private int id;
+    private Professor professor;
+    private Disciplina disciplina;
+    private List<Aluno> alunos;
+    private String semestre;
+    private String ano;
 
     public Turmas(Professor professor, Disciplina disciplina) {
         this.professor = professor;
@@ -42,12 +43,12 @@ public class Turmas {
         return this.alunos;
     }
 
-    public boolean isOptativa(){
+    public boolean isOptativa() {
         return this.disciplina.isOptativa();
     }
 
-    public Professor selecionarProfessor(Professor professor){
-        return  this.professor;
+    public Professor selecionarProfessor(Professor professor) {
+        return this.professor;
     }
 
     public Professor getProfessor() {

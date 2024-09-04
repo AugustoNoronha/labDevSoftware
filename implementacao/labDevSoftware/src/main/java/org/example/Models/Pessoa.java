@@ -26,4 +26,9 @@ public class Pessoa {
     public boolean login(String senha, int id) {
         return this.id == id && this.senha.equals(senha);
     }
+
+    @Override
+    public String toString() {
+        return getId() + ";" + getNome() + ";" + getSenha();
+    }
 }

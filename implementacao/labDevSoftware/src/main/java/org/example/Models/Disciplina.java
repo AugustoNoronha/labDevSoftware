@@ -2,8 +2,6 @@ package org.example.Models;
 
 import org.example.Models.Enums.Status;
 
-import java.util.List;
-
 public class Disciplina {
     private int id;
     private String nome;
@@ -23,11 +21,11 @@ public class Disciplina {
         Status = status;
     }
 
-    public Boolean validarNumeroMinimoDeAlunos(){
+    public Boolean validarNumeroMinimoDeAlunos() {
         return true;
     }
 
-    public void cancelarDisciplina(){
+    public void cancelarDisciplina() {
 
     }
 
@@ -61,6 +59,6 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return id  + ";" +  nome + ";" + optativa;
+        return id + ";" + nome + ";" + CREDITOS + ";" + optativa + ";" + CARGA_HORARIA + ";" + NUMERO_MAXIMO_ALUNOS + ";" + Status;
     }
 }

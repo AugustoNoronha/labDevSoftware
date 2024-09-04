@@ -36,4 +36,8 @@ public class Secretaria extends Pessoa{
     }
 
 
+    @Override
+    public String toString() {
+        return getId() + ";" + getNome() + ";" + getSenha();
+    }
 }

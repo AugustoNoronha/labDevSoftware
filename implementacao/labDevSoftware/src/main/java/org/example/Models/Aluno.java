@@ -4,7 +4,7 @@ import org.example.Models.Enums.Status;
 
 import java.util.List;
 
-public class Aluno extends Pessoa{
+public class Aluno extends Pessoa {
     private int creditos;
     private Curso curso;
     private List<Turmas> turmas;
@@ -32,7 +32,7 @@ public class Aluno extends Pessoa{
             return;
         }
 
-        if(turma.getDisciplina().getStatus() != Status.ABERTA_MATRICULA){
+        if (turma.getDisciplina().getStatus() != Status.ABERTA_MATRICULA) {
             System.out.println("A turma não está mais disponivel para matrícula");
             return;
         }
@@ -58,7 +58,7 @@ public class Aluno extends Pessoa{
             return;
         }
 
-        if(turma.getDisciplina().getStatus() != Status.ABERTA_MATRICULA){
+        if (turma.getDisciplina().getStatus() != Status.ABERTA_MATRICULA) {
             System.out.println("A turma não está mais disponivel para matrícula");
             return;
         }
@@ -93,23 +93,27 @@ public class Aluno extends Pessoa{
 
     private boolean optativasMaximasAtingida() {
         int numeroOptativas = 0;
-        for(Turmas turma:turmas) {
-            if(turma.isOptativa()) {
+        for (Turmas turma : turmas) {
+            if (turma.isOptativa()) {
                 numeroOptativas++;
             }
         }
-        return numeroOptativas < 2? false:true;
+        return numeroOptativas < 2 ? false : true;
     }
 
     private boolean obrigatoriasMaximasAtingidas() {
         int numeroObrigatorias = 0;
-        for(Turmas turma:turmas) {
-            if(!turma.isOptativa()) {
+        for (Turmas turma : turmas) {
+            if (!turma.isOptativa()) {
                 numeroObrigatorias++;
             }
         }
-        return numeroObrigatorias < 4? false:true;
+        return numeroObrigatorias < 4 ? false : true;
 
     }
 
+    @Override
+    public String toString() {
+        return super.getId() + ";" + super.getNome() + ";" + super.getSenha() + ";" + creditos + ";" + curso;
+    }
 }

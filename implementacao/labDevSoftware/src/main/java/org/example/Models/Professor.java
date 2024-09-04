@@ -15,4 +15,8 @@ public class Professor extends Pessoa{
         return  list;
     }
 
+    @Override
+    public String toString() {
+        return getId() + ";" + getNome() + ";" + getSenha();
+    }
 }

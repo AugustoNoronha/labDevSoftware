@@ -75,4 +75,9 @@ public class Turmas {
     public String getAno() {
         return ano;
     }
+
+    @Override
+    public String toString() {
+        return id + ";" + professor + ";" + disciplina.getNome();
+    }
 }

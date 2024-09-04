@@ -84,6 +84,6 @@ public class Curso {
 
     @Override
     public String toString() {
-        return id + ";" + nome + ";" + disciplinas;
+        return id + ";" + nome + ";" + CREDITOS + ";" + CARGA_HORARIA + ";" + disciplinas;
     }
 }
